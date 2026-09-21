@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>兴义万峰林 · 6日自驾手册 10.1-10.6</title>
+<style>
+:root{
+  --bg:#f6f3ec; --card:#ffffff; --ink:#2b2b26; --sub:#8a8577; --line:#e5e0d3;
+  --accent:#e8763a; --ok:#2e9e5b; --warn:#c2452d;
+  --shadow:0 2px 10px rgba(80,70,40,.08);
+}
+[data-theme="dark"]{
+  --bg:#17191d; --card:#20242b; --ink:#e8e6df; --sub:#9aa0aa; --line:#2f343d;
+  --accent:#f0925a; --ok:#5cc98a; --warn:#e0785f;
+  --shadow:0 2px 10px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;padding:16px 14px 60px;max-width:760px;margin:0 auto}
+h1{font-size:24px;margin:8px 0 2px;letter-spacing:.5px}
+.hsub{color:var(--sub);font-size:13px;margin-bottom:14px}
+section{margin-top:22px}
+.sec-title{font-size:17px;font-weight:800;margin-bottom:10px;padding-left:10px;border-left:4px solid var(--accent)}
+.card{background:var(--card);border-radius:14px;padding:16px;box-shadow:var(--shadow);border:1px solid var(--line)}
+
+/* 此刻关注 */
+.nowcard{text-align:center;padding:20px 16px}
+.now-label{color:var(--sub);font-size:13px}
+.now-what{font-size:18px;font-weight:800;margin:4px 0 10px}
+.cd{font-size:38px;font-weight:900;letter-spacing:1px;color:var(--accent);font-variant-numeric:tabular-nums}
+.cd small{font-size:15px;font-weight:700;color:var(--sub);margin:0 3px}
+.cd-unit{font-size:13px;color:var(--sub);font-weight:700}
+.tz{font-size:11px;color:var(--sub);margin-top:8px}
+
+/* 地图 */
+.mapwrap{background:var(--card);border-radius:14px;padding:10px;box-shadow:var(--shadow);border:1px solid var(--line)}
+svg text{font-family:'Segoe Print','Comic Sans MS','KaiTi',cursive}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11.5px;color:var(--sub);padding:8px 6px 2px}
+.legend i{display:inline-block;width:18px;height:3px;border-radius:2px;margin-right:4px;vertical-align:middle}
+
+/* 预订 */
+.book{display:flex;gap:10px;padding:12px 2px;border-bottom:1px dashed var(--line);align-items:flex-start}
+.book:last-child{border-bottom:none}
+.bico{font-size:22px;line-height:1.3}
+.bmain{flex:1;min-width:0}
+.btitle{font-weight:800;font-size:15px}
+.bmeta{font-size:13px;color:var(--sub);margin-top:2px}
+a.loc{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent)}
+.pending{display:inline-block;font-size:11px;color:var(--warn);border:1px solid var(--warn);border-radius:6px;padding:0 6px;margin-left:6px}
+
+/* 逐日 */
+details.day{background:var(--card);border-radius:14px;box-shadow:var(--shadow);border:1px solid var(--line);margin-bottom:12px;overflow:hidden}
+details.day summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:10px}
+details.day summary::-webkit-details-marker{display:none}
+.dnum{background:var(--accent);color:#fff;font-weight:900;border-radius:10px;padding:2px 10px;font-size:13px;white-space:nowrap}
+.dtitle{font-weight:800;font-size:15px;flex:1}
+.dstay{font-size:11.5px;color:var(--sub);white-space:nowrap}
+.dbody{padding:0 14px 14px;border-top:1px solid var(--line)}
+.routechain{display:flex;flex-wrap:wrap;align-items:center;gap:4px;font-size:12px;color:var(--sub);padding:10px 2px 4px}
+.routechain b{color:var(--ink);font-weight:700}
+.arrow{color:var(--accent)}
+.daynav{display:inline-block;margin:6px 0 10px;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer}
+.tl{margin-top:6px}
+.tl-row{display:flex;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.tl-row:last-child{border-bottom:none}
+.tl-time{width:52px;flex-shrink:0;font-weight:800;font-size:13px;color:var(--accent);font-variant-numeric:tabular-nums}
+.tl-body{flex:1;font-size:14px}
+.badge{display:inline-block;font-size:11px;border-radius:6px;padding:0 6px;margin-left:4px;vertical-align:1px}
+.badge.warn{background:rgba(194,69,45,.12);color:var(--warn);border:1px solid var(--warn)}
+.badge.info{background:rgba(62,132,198,.12);color:#3e84c6;border:1px solid #3e84c6}
+.badge.ok{background:rgba(46,158,91,.12);color:var(--ok);border:1px solid var(--ok)}
+[data-theme="dark"] .badge.info{color:#7ab8e8;border-color:#7ab8e8}
+
+/* 待办 */
+.todo{list-style:none}
+.todo li{padding:9px 2px;border-bottom:1px dashed var(--line);font-size:14px}
+.todo li:last-child{border-bottom:none}
+.when{color:var(--accent);font-weight:800}
+.star{color:var(--warn);font-weight:900}
+
+/* 贴士 */
+.tips{list-style:none}
+.tips li{padding:8px 2px 8px 22px;position:relative;font-size:14px;border-bottom:1px dashed var(--line)}
+.tips li:last-child{border-bottom:none}
+.tips li:before{content:"●";position:absolute;left:4px;color:var(--accent);font-size:10px;top:12px}
+footer{text-align:center;color:var(--sub);font-size:11px;margin-top:30px;line-height:1.8}
+</style>
+</head>
+<body>
+
+<h1>兴义万峰林 · 6日自驾手册</h1>
+<div class="hsub">10.1（周四）— 10.6（周二）｜昆明 ⇄ 兴义｜单文件 · 离线可看 · 点地点直接导航</div>
+
+<!-- ① 此刻关注 -->
+<section>
+  <div class="sec-title">此刻关注</div>
+  <div class="card nowcard">
+    <div class="now-label">下一个行程事件</div>
+    <div class="now-what" id="nextWhat">—</div>
+    <div class="cd" id="cd">--<small>天</small>--<small>时</small>--<small>分</small>--<small>秒</small></div>
+    <div class="tz">⏱ 全部按北京时间（UTC+8）计算，跨时区打开不会算错</div>
+  </div>
+</section>
+
+<!-- ② 总览地图 -->
+<section>
+  <div class="sec-title">行程总览 · 手绘路线图</div>
+  <div class="mapwrap">
+    <svg viewBox="0 0 680 430" width="100%" role="img" aria-label="行程总览地图">
+      <!-- 底纹 -->
+      <rect x="0" y="0" width="680" height="430" rx="14" fill="none"/>
+      <!-- D1 昆明→桔山 -->
+      <path d="M 85,325 C 200,365 350,330 470,240" fill="none" stroke="#e8763a" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 9"/>
+      <!-- D2 桔山↔清水河镇 -->
+      <path d="M 470,240 C 498,205 522,170 515,115" fill="none" stroke="#3a8fe8" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 7"/>
+      <!-- D3 桔山→万峰林营地 -->
+      <path d="M 470,240 C 468,278 458,308 450,335" fill="none" stroke="#43a047" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 9"/>
+      <!-- D4 营地→坝瓦→山夕 -->
+      <path d="M 450,335 C 425,368 402,378 380,375 C 352,352 338,325 330,300" fill="none" stroke="#8e5bd1" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 330,300 C 350,300 420,310 450,335" fill="none" stroke="#8e5bd1" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 7" opacity=".55"/>
+      <!-- D5 纳灰河小环线 -->
+      <path d="M 450,335 C 492,348 505,318 478,303 C 460,293 446,302 447,322" fill="none" stroke="#009688" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 8"/>
+      <!-- D6 营地→曲靖 -->
+      <path d="M 450,335 C 380,258 315,195 250,150" fill="none" stroke="#9e9e9e" stroke-width="4" stroke-linecap="round" stroke-dasharray="12 8"/>
+      <!-- 节点 -->
+      <g font-size="14" font-weight="700">
+        <circle cx="85" cy="325" r="9" fill="#e8763a"/><circle cx="85" cy="325" r="4" fill="#fff"/>
+        <text x="85" y="355" text-anchor="middle">昆明</text>
+        <text x="85" y="372" text-anchor="middle" font-size="11" font-weight="400">10.1 早 7:00 出发</text>
+        <circle cx="470" cy="240" r="9" fill="#2b2b26"/><circle cx="470" cy="240" r="4" fill="#fff"/>
+        <text x="470" y="222" text-anchor="middle">兴义 · 桔山</text>
+        <text x="470" y="206" text-anchor="middle" font-size="11" font-weight="400">🏠 滴水大院 10.1-10.2</text>
+        <circle cx="515" cy="115" r="8" fill="#3a8fe8"/><circle cx="515" cy="115" r="3.5" fill="#fff"/>
+        <text x="515" y="97" text-anchor="middle">清水河镇</text>
+        <text x="515" y="82" text-anchor="middle" font-size="11" font-weight="400">雨补鲁天坑 · 清水河瀑布</text>
+        <circle cx="450" cy="335" r="9" fill="#43a047"/><circle cx="450" cy="335" r="4" fill="#fff"/>
+        <text x="450" y="360" text-anchor="middle">万峰林 · 峰下悦栖营地</text>
+        <text x="450" y="377" text-anchor="middle" font-size="11" font-weight="400">⛺ 10.3-10.5 · 边三轮大本营</text>
+        <circle cx="380" cy="375" r="6" fill="#8e5bd1"/>
+        <text x="380" y="396" text-anchor="middle" font-size="12">坝瓦村寨</text>
+        <circle cx="330" cy="300" r="6" fill="#8e5bd1"/>
+        <text x="322" y="286" text-anchor="middle" font-size="12">山夕coffee</text>
+        <circle cx="250" cy="150" r="9" fill="#9e9e9e"/><circle cx="250" cy="150" r="4" fill="#fff"/>
+        <text x="250" y="132" text-anchor="middle">曲靖</text>
+        <text x="250" y="117" text-anchor="middle" font-size="11" font-weight="400">🏁 10.6 返程抵达</text>
+        <circle cx="282" cy="312" r="4" fill="#e8763a" opacity=".8"/>
+        <text x="282" y="336" text-anchor="middle" font-size="10.5" font-weight="400">罗平服务区</text>
+      </g>
+    </svg>
+    <div class="legend">
+      <span><i style="background:#e8763a"></i>10.1 昆明→桔山</span>
+      <span><i style="background:#3a8fe8"></i>10.2 雨补鲁·清水河</span>
+      <span><i style="background:#43a047"></i>10.3 进万峰林</span>
+      <span><i style="background:#8e5bd1"></i>10.4 坝瓦·山夕</span>
+      <span><i style="background:#009688"></i>10.5 纳灰河骑行</span>
+      <span><i style="background:#9e9e9e"></i>10.6 返程曲靖</span>
+    </div>
+  </div>
+</section>
+
+<!-- ③ 已确认预订 -->
+<section>
+  <div class="sec-title">已确认 · 住宿 / 租车</div>
+  <div class="card">
+    <div class="book">
+      <div class="bico">🏠</div>
+      <div class="bmain">
+        <div class="btitle">滴水大院 · 14号901（【倾佳里】整套民宿）</div>
+        <div class="bmeta">10.1（周四）14:00后入住 — 10.3（周六）12:00前退房 · 共2晚</div>
+        <div class="bmeta">整套 120㎡ · 3居3床2卫1厅 · 宜住6人（可加3人）</div>
+        <div class="bmeta">👤 住客：应辉 · ☎ 138****4769</div>
+        <div class="bmeta">📍 <a class="loc" href="#" onclick="nav('兴义市滴水大院','兴义');return false">黔西南兴义市滴水大院（点我导航）</a></div>
+      </div>
+    </div>
+    <div class="book">
+      <div class="bico">⛺</div>
+      <div class="bmain">
+        <div class="btitle">峰下悦栖露营基地（房车营地）</div>
+        <div class="bmeta">10.3（周六）入住 — 10.6（周二）早退房 · 共3晚</div>
+        <div class="bmeta">📍 <a class="loc" href="#" onclick="nav('峰下悦栖露营基地','兴义');return false">万峰林景区旁（点我导航）</a> · 无需预订，直接入住</div>
+      </div>
+    </div>
+    <div class="book">
+      <div class="bico">🛵</div>
+      <div class="bmain">
+        <div class="btitle">边三轮电动车租赁 <span class="pending">租金/押金待问</span></div>
+        <div class="bmeta">10.3 起租 · 用至 10.5（3天）</div>
+        <div class="bmeta">💡 在营地办理；记得问清续航、是否含头盔、晚上在哪充电</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ 逐日行程 -->
+<section>
+  <div class="sec-title">逐日行程（点开看详情 · 一键全天导航）</div>
+
+  <details class="day">
+    <summary><span class="dnum">Day 1</span><span class="dtitle">昆明 → 兴义桔山</span><span class="dstay">住 滴水大院</span></summary>
+    <div class="dbody">
+      <div class="routechain"><b>昆明</b><span class="arrow">→</span>G78汕昆高速 3.5h<span class="arrow">→</span><b>桔山 · 滴水大院</b><span class="arrow">→</span>村厨莲渣闹<span class="arrow">→</span>灰豆腐鸡<span class="arrow">→</span><b>滴水大院</b></div>
+      <button class="daynav" onclick="navDay(1)">🗺️ 一键打开全天导航</button>
+      <div class="tl">
+        <div class="tl-row"><div class="tl-time">07:00</div><div class="tl-body">昆明自驾出发，汕昆高速 G78（车程约3.5h）<span class="badge warn">国庆出城早高峰 · 能再早15分钟更好</span></div></div>
+        <div class="tl-row"><div class="tl-time">10:30</div><div class="tl-body">抵达桔山，<a class="loc" href="#" onclick="nav('滴水大院','兴义');return false">滴水大院·14号901</a> 办理入住，休整放行李<span class="badge info">订单信息待补</span></div></div>
+        <div class="tl-row"><div class="tl-time">11:30</div><div class="tl-body">午餐：<a class="loc" href="#" onclick="nav('村厨莲渣闹贵州菜兴义总店','兴义');return false">村厨莲渣闹·贵州菜（兴义总店）</a>，莲渣闹 + 黑豆花鸡</div></div>
+        <div class="tl-row"><div class="tl-time">14:00</div><div class="tl-body">— 18:00 采购骑行物资、零食，民宿休息</div></div>
+        <div class="tl-row"><div class="tl-time">18:30</div><div class="tl-body">晚餐：<a class="loc" href="#" onclick="nav('兴义灰豆腐鸡老店','兴义');return false">兴义灰豆腐鸡（老店）</a>，兴义独有灰豆腐鸡</div></div>
+        <div class="tl-row"><div class="tl-time">21:00</div><div class="tl-body">返回民宿休息</div></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary><span class="dnum">Day 2</span><span class="dtitle">雨补鲁天坑 → 清水河玩水</span><span class="dstay">住 滴水大院</span></summary>
+    <div class="dbody">
+      <div class="routechain"><b>滴水大院</b><span class="arrow">→</span><b>雨补鲁天坑</b><span class="arrow">→</span>黔水渔酸汤鱼<span class="arrow">→</span><b>清水河瀑布浆板</b><span class="arrow">→</span><b>滴水大院</b></div>
+      <button class="daynav" onclick="navDay(2)">🗺️ 一键打开全天导航</button>
+      <div class="tl">
+        <div class="tl-row"><div class="tl-time">08:30</div><div class="tl-body">早餐：<a class="loc" href="#" onclick="nav('郑记老牌黑山羊肉粉','兴义');return false">郑记老牌黑山羊肉粉</a></div></div>
+        <div class="tl-row"><div class="tl-time">09:30</div><div class="tl-body">— 13:00 <a class="loc" href="#" onclick="nav('雨补鲁天坑风景区','兴义');return false">雨补鲁天坑风景区</a>：逛古村寨、走溪涧<span class="badge ok">免费 · 无需预约</span><span class="badge info">村子不大 2h 足够，节奏可以放慢</span></div></div>
+        <div class="tl-row"><div class="tl-time">13:00</div><div class="tl-body">午餐：<a class="loc" href="#" onclick="nav('黔水渔布依酸汤鱼','兴义');return false">黔水渔布依酸汤鱼</a>，手工酸汤鱼火锅</div></div>
+        <div class="tl-row"><div class="tl-time">14:00</div><div class="tl-body">准时抵达<a class="loc" href="#" onclick="nav('清水河风景区','兴义');return false">清水河瀑布</a>浆板：玩水、玩浆板、徒步<span class="badge warn">★ 需提前预约浆板教练/装备 · 17:30 停止入园</span></div></div>
+        <div class="tl-row"><div class="tl-time">17:30</div><div class="tl-body">自驾返程桔山城区</div></div>
+        <div class="tl-row"><div class="tl-time">19:00</div><div class="tl-body">简单简餐</div></div>
+        <div class="tl-row"><div class="tl-time">21:00</div><div class="tl-body">回到民宿</div></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary><span class="dnum">Day 3</span><span class="dtitle">退房 → 万峰林 · 边三轮赶集</span><span class="dstay">住 峰下悦栖</span></summary>
+    <div class="dbody">
+      <div class="routechain"><b>滴水大院退房</b><span class="arrow">→</span><b>峰下悦栖营地</b><span class="arrow">→</span>乡村集市<span class="arrow">→</span>白鸟观景餐厅<span class="arrow">→</span>纳灰骑行<span class="arrow">→</span><b>营地</b></div>
+      <button class="daynav" onclick="navDay(3)">🗺️ 一键打开全天导航</button>
+      <div class="tl">
+        <div class="tl-row"><div class="tl-time">08:30</div><div class="tl-body">民宿退房，自驾前往万峰林（约40分钟）</div></div>
+        <div class="tl-row"><div class="tl-time">10:00</div><div class="tl-body">抵达<a class="loc" href="#" onclick="nav('峰下悦栖露营基地','兴义');return false">峰下悦栖露营基地</a>：办理入住，租赁边三轮电动车<span class="badge info">问清续航、头盔、充电</span></div></div>
+        <div class="tl-row"><div class="tl-time">11:00</div><div class="tl-body">骑边三轮赶乡村集市，采购土特产与农家小吃<span class="badge info">带现金零钱</span></div></div>
+        <div class="tl-row"><div class="tl-time">13:00</div><div class="tl-body">午餐：<a class="loc" href="#" onclick="nav('万峰林白鸟观景餐厅','兴义');return false">万峰林白鸟观景餐厅</a>，酸笋牛肉 + 农家小炒</div></div>
+        <div class="tl-row"><div class="tl-time">14:30</div><div class="tl-body">— 18:00 骑行漫游上纳灰、下纳灰古村落、稻田、古榕树群<span class="badge ok">免费区域 · 无需门票</span><span class="badge info">不进收费景区</span></div></div>
+        <div class="tl-row"><div class="tl-time">19:00</div><div class="tl-body">营地周边简餐，返回房车营地休息</div></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary><span class="dnum">Day 4</span><span class="dtitle">骑行坝瓦村寨 → 山夕coffee日落</span><span class="dstay">住 峰下悦栖</span></summary>
+    <div class="dbody">
+      <div class="routechain"><b>营地</b><span class="arrow">→</span><b>坝瓦村寨</b><span class="arrow">→</span>小众观景台<span class="arrow">→</span><b>山夕coffee</b><span class="arrow">→</span>八步烽烤肉<span class="arrow">→</span><b>营地</b></div>
+      <button class="daynav" onclick="navDay(4)">🗺️ 一键打开全天导航</button>
+      <div class="tl">
+        <div class="tl-row"><div class="tl-time">09:00</div><div class="tl-body">骑边三轮从营地出发，沿乡村公路前往<a class="loc" href="#" onclick="nav('坝瓦村寨','兴义');return false">坝瓦村寨</a>，沿途峰林田园拍照</div></div>
+        <div class="tl-row"><div class="tl-time">12:30</div><div class="tl-body">村寨农家简餐</div></div>
+        <div class="tl-row"><div class="tl-time">14:00</div><div class="tl-body">继续骑行，打卡小众观景台，边走边停</div></div>
+        <div class="tl-row"><div class="tl-time">17:00</div><div class="tl-body">抵达<a class="loc" href="#" onclick="nav('山夕coffee','兴义');return false">山夕coffee</a>（千里江山图观景）：抢占机位，等峰林日落<span class="badge info">10月初日落约18:30 · 黄金机位早占</span></div></div>
+        <div class="tl-row"><div class="tl-time">19:00</div><div class="tl-body">晚餐：<a class="loc" href="#" onclick="nav('八步烽大片烤肉店','兴义');return false">八步烽大片烤肉店</a>，小黄牛肉烤肉 + 老腊肉豆米火锅<span class="badge warn">夜间骑边三轮返程 · 车速放慢</span></div></div>
+        <div class="tl-row"><div class="tl-time">21:00</div><div class="tl-body">骑行返回露营基地</div></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary><span class="dnum">Day 5</span><span class="dtitle">万峰林深度骑行漫游</span><span class="dstay">住 峰下悦栖</span></summary>
+    <div class="dbody">
+      <div class="routechain"><b>营地</b><span class="arrow">→</span><b>纳灰河沿岸</b><span class="arrow">→</span>布依平寨<span class="arrow">→</span>稻田步道·咖啡馆<span class="arrow">→</span>远山西院<span class="arrow">→</span><b>营地</b></div>
+      <button class="daynav" onclick="navDay(5)">🗺️ 一键打开全天导航</button>
+      <div class="tl">
+        <div class="tl-row"><div class="tl-time">09:00</div><div class="tl-body">骑边三轮自由骑行：纳灰河沿岸 → 布依平寨 → 田野观景道，随走随停</div></div>
+        <div class="tl-row"><div class="tl-time">12:30</div><div class="tl-body">路边布依农家简餐</div></div>
+        <div class="tl-row"><div class="tl-time">15:00</div><div class="tl-body">午后休闲：打卡稻田步道、田园小众咖啡馆</div></div>
+        <div class="tl-row"><div class="tl-time">18:00</div><div class="tl-body">晚餐：<a class="loc" href="#" onclick="nav('远山西院花园餐厅万峰林店','兴义');return false">远山西院花园餐厅（万峰林店）</a>，招牌烧椒牛肉火锅</div></div>
+        <div class="tl-row"><div class="tl-time">20:30</div><div class="tl-body">返回房车露营基地休息</div></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="day">
+    <summary><span class="dnum">Day 6</span><span class="dtitle">万峰林 → 曲靖 返程</span><span class="dstay">🏁 行程结束</span></summary>
+    <div class="dbody">
+      <div class="routechain"><b>营地退房</b><span class="arrow">→</span>G78/G60 高速约4h<span class="arrow">→</span>服务区休整<span class="arrow">→</span><b>曲靖</b></div>
+      <button class="daynav" onclick="navDay(6)">🗺️ 一键打开全天导航</button>
+      <div class="tl">
+        <div class="tl-row"><div class="tl-time">08:00</div><div class="tl-body">房车营地退房，收拾行李<span class="badge info">边三轮前一天记得还</span></div></div>
+        <div class="tl-row"><div class="tl-time">08:30</div><div class="tl-body">自驾上高速返程曲靖<span class="badge warn">国庆返程车流大 · 08:30 前出发最稳</span></div></div>
+        <div class="tl-row"><div class="tl-time">中途</div><div class="tl-body">服务区休整（建议罗平或师宗服务区）</div></div>
+        <div class="tl-row"><div class="tl-time">12:30</div><div class="tl-body">约中午抵达曲靖，行程结束 🎉</div></div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- ⑤ 待办清单 -->
+<section>
+  <div class="sec-title">待办清单（办完一项告诉我，我改页面）</div>
+  <div class="card">
+    <ul class="todo">
+      <li><span class="star">★</span> <span class="when">尽早</span> — <b>预约清水河浆板</b>：10.2 下午场次，含教练/装备的商业项目单独收费；景区 17:30 停止入园，14:00 到刚好</li>
+      <li><span class="when">出发前</span> — 车况检查：胎压/机油/玻璃水，加满油，ETC 余额充足</li>
+      <li><span class="when">出发前</span> — 装备：雨具、防晒、浆板换洗衣物+防滑鞋、早晚外套（山区低温约15°C）</li>
+      <li><span class="when">出发前</span> — 备少量现金零钱（乡村集市、农家乐可能扫码不便）</li>
+      <li><span class="when">10.3</span> — 问营地老板 10.3 是否正好赶集日（集市有固定日期，不对就调整当天顺序）</li>
+      <li><span class="when">10.5</span> — 傍晚前把边三轮还掉、充满车（10.6 一早退房出发）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ⑥ 实用贴士 -->
+<section>
+  <div class="sec-title">实用贴士</div>
+  <div class="card">
+    <ul class="tips">
+      <li><b>雨补鲁天坑</b>：免费、全年开放、无需预约。看点是布依石板房古村 + 观景台俯瞰"大地之眼"，别按大景区期待，它是个安静的村子。</li>
+      <li><b>清水河景区</b>：免费开放 09:00-17:30。瀑布、峡谷免费逛；<b>浆板是单独收费项目</b>（含教练陪同），天气/水况不好会临时停开，备选方案：马岭河峡谷（约40分钟车程）。</li>
+      <li><b>万峰林</b>：这次只玩免费区域——上/下纳灰村寨、稻田、纳灰河沿线，<b>不买门票、不进收费区</b>；半山腰观景台（将军峰、八卦田那些）要门票+观光车才能到，看高处全景就交给山夕coffee。旺季景区 8:00-18:00。</li>
+      <li><b>边三轮</b>：多为电动车，续航一般 40-60km。Day4 绕坝瓦一天可能 40km+，出发前充满电、记下营地电话，没电就地打电话。</li>
+      <li><b>山夕coffee</b>：10 月初兴义日落约 18:30-18:40，17:00 到店喝杯咖啡等日落刚刚好；"千里江山图"机位在露台一侧，节假日早占。</li>
+      <li><b>天气</b>：山区昼夜温差大，白天 25°C 上下、早晚 15°C 左右；10 月贵州多阵雨，浆板和骑行留意当天天气。</li>
+      <li><b>自驾</b>：汕昆高速罗平段货车多，超车留量；导航认准"桔山"片区订的民宿定位，兴义城区国庆停车紧张，尽量用民宿车位。</li>
+      <li><b>官方渠道</b>：门票、浆板、营地都走官方公众号/平台下单，别买路边"黄牛套餐"。</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  兴义万峰林 6 日自驾 · 2026.10.1 - 10.6<br>
+  单文件网页 · 可离线查看 · 转发给同行的人直接打开即可
+</footer>
+
+<script>
+(function(){
+"use strict";
+function $(id){ return document.getElementById(id); }
+
+/* ---------- 主题：按北京时间自动昼夜切换 ---------- */
+function bjNow(){ return new Date(Date.now() + (new Date().getTimezoneOffset()*60000) + 8*3600000); }
+function applyTheme(){
+  var h = bjNow().getHours();
+  document.documentElement.setAttribute("data-theme", (h >= 19 || h < 7) ? "dark" : "light");
+}
+applyTheme(); setInterval(applyTheme, 60000);
+
+/* ---------- 倒计时：下一个行程事件 ---------- */
+var EVENTS = [
+  {t:"2026-10-01T07:00:00+08:00", l:"🚗 昆明出发 · 汕昆高速 G78"},
+  {t:"2026-10-01T10:30:00+08:00", l:"🏠 抵达桔山 · 滴水大院办入住"},
+  {t:"2026-10-02T09:30:00+08:00", l:"⛰️ 雨补鲁天坑 · 古村寨溪涧"},
+  {t:"2026-10-02T14:00:00+08:00", l:"🛶 清水河瀑布 · 浆板玩水"},
+  {t:"2026-10-03T10:00:00+08:00", l:"⛺ 峰下悦栖入住 · 租边三轮"},
+  {t:"2026-10-03T11:00:00+08:00", l:"🛵 骑边三轮赶乡村集市"},
+  {t:"2026-10-04T09:00:00+08:00", l:"🛵 骑行坝瓦村寨"},
+  {t:"2026-10-04T17:00:00+08:00", l:"☕ 山夕coffee · 等峰林日落"},
+  {t:"2026-10-05T09:00:00+08:00", l:"🛵 纳灰河自由骑行"},
+  {t:"2026-10-06T08:30:00+08:00", l:"🚗 营地退房 · 自驾返曲靖"},
+  {t:"2026-10-06T12:30:00+08:00", l:"🏁 抵达曲靖 · 行程结束"}
+];
+function pad(n){ return (n<10?"0":"")+n; }
+function tick(){
+  var now = Date.now(), next = null;
+  for (var i=0;i<EVENTS.length;i++){
+    if (new Date(EVENTS[i].t).getTime() > now){ next = EVENTS[i]; break; }
+  }
+  if (!next){
+    $("nextWhat").textContent = "🎉 行程已圆满结束";
+    $("cd").textContent = "万峰林见！";
+    return;
+  }
+  $("nextWhat").textContent = next.l;
+  var diff = new Date(next.t).getTime() - now;
+  var d = Math.floor(diff/86400000), h = Math.floor(diff%86400000/3600000),
+      m = Math.floor(diff%3600000/60000), s = Math.floor(diff%60000/1000);
+  $("cd").innerHTML = d>0 ? (d+"<small>天</small>"+pad(h)+"<small>时</small>"+pad(m)+"<small>分</small>"+pad(s)+"<small>秒</small>")
+                          : (pad(h)+":"+pad(m)+":"+pad(s));
+}
+tick(); setInterval(tick, 1000);
+
+/* ---------- 百度地图导航 ---------- */
+window.nav = function(name, city){
+  var url = "https://api.map.baidu.com/direction?destination=" + encodeURIComponent(name) +
+    "&mode=driving&region=" + encodeURIComponent(city) + "&output=html&src=webapp.xingyitrip2026";
+  window.open(url, "_blank");
+};
+/* 全天多点导航：origin → waypoints → destination */
+var ROUTES = {
+  1:{o:"昆明", w:[], d:"滴水大院", r:"兴义"},
+  2:{o:"滴水大院", w:["雨补鲁天坑风景区","黔水渔布依酸汤鱼","清水河风景区"], d:"滴水大院", r:"兴义"},
+  3:{o:"滴水大院", w:["峰下悦栖露营基地","万峰林白鸟观景餐厅"], d:"峰下悦栖露营基地", r:"兴义"},
+  4:{o:"峰下悦栖露营基地", w:["坝瓦村寨","山夕coffee","八步烽大片烤肉店"], d:"峰下悦栖露营基地", r:"兴义"},
+  5:{o:"峰下悦栖露营基地", w:["纳灰河","布依平寨","远山西院花园餐厅万峰林店"], d:"峰下悦栖露营基地", r:"兴义"},
+  6:{o:"峰下悦栖露营基地", w:[], d:"曲靖", r:"曲靖"}
+};
+window.navDay = function(n){
+  var r = ROUTES[n]; if (!r) return;
+  var url = "https://api.map.baidu.com/direction?origin=" + encodeURIComponent(r.o) +
+    "&destination=" + encodeURIComponent(r.d) +
+    (r.w.length ? "&waypoints=" + encodeURIComponent(r.w.join("|")) : "") +
+    "&mode=driving&region=" + encodeURIComponent(r.r) + "&output=html&src=webapp.xingyitrip2026";
+  window.open(url, "_blank");
+};
+})();
+</script>
+</body>
+</html>
