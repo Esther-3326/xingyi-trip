@@ -38,6 +38,14 @@ svg text{font-family:'Segoe Print','Comic Sans MS','KaiTi',cursive}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:11.5px;color:var(--sub);padding:8px 6px 2px}
 .legend i{display:inline-block;width:18px;height:3px;border-radius:2px;margin-right:4px;vertical-align:middle}
 
+/* 出行天团 */
+.crew{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.crew div{background:var(--bg);border:1.5px dashed var(--line);border-radius:12px;padding:11px 12px;font-size:13px;line-height:1.55}
+.crew b{display:block;font-size:14.5px;margin-bottom:2px}
+.crew i{font-style:normal;font-size:20px;margin-right:4px}
+.crew span{color:var(--sub);font-size:12px}
+@media (max-width:420px){.crew{grid-template-columns:1fr 1fr}.crew div{padding:9px 10px}}
+
 /* 预订 */
 .book{display:flex;gap:10px;padding:12px 2px;border-bottom:1px dashed var(--line);align-items:flex-start}
 .book:last-child{border-bottom:none}
@@ -90,6 +98,19 @@ footer{text-align:center;color:var(--sub);font-size:11px;margin-top:30px;line-he
 
 <h1>兴义万峰林 · 6日自驾手册</h1>
 <div class="hsub">10.1（周四）— 10.6（周二）｜昆明 ⇄ 兴义｜单文件 · 离线可看 · 点地点直接导航</div>
+
+<!-- ⓪ 出行天团 -->
+<section>
+  <div class="sec-title">本次出行 · 天团编制</div>
+  <div class="card">
+    <div class="crew">
+      <div><i>🧭</i><b>小队长</b><span>方向盘在手，行程我有 · 首席司机</span></div>
+      <div><i>🤝</i><b>外交部长</b><span>问路、点菜、砍价 · 轮换司机</span></div>
+      <div><i>📸</i><b>宣传部长</b><span>出片担当，承包全团朋友圈九宫格</span></div>
+      <div><i>🛠️</i><b>工程部长</b><span>换胎、充电、修边三轮 · 轮换司机</span></div>
+    </div>
+  </div>
+</section>
 
 <!-- ① 此刻关注 -->
 <section>
